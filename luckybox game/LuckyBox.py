@@ -41,7 +41,6 @@ while True:
     box_awards = random.choice(awards)
 
     
-  
     if box_awards.strip() != "":
         total_wins += 1
 
