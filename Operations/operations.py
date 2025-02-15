@@ -5,32 +5,33 @@ from mysql.connector import Error
 print ('Did you do math today...')
 
 class Math :
-    def __init__(cal):
-        pass
+    def __init__(cal,num1, num2):
+        cal.num1 = num1
+        cal.num2 = num2
 
-    def add(cal,num1,num2):
-        return num1 + num2
+    def add(cal):
+        return cal.num1 + cal.num2
     
-    def subtract(cal,num1,num2):
-        return num1 - num2
+    def subtract(cal):
+        return cal.num1 - cal.num2
     
-    def multiply(cal,num1,num2):
-        return num1 * num2
+    def multiply(cal):
+        return cal.num1 * cal.num2
     
-    def divide(cal,num1, num2):
-        if num2 == 0:
+    def divide(cal):
+        if cal.num2 == 0:
             return "Error, division by zero is not allowed"
-        return num1 / num2
+        return cal.num1 / cal.num2
         
     def perform_operation(cal,math_op, num1, num2, opchoose):
         if math_op == 1:
-            return  f" The answer of your operation {opchoose} is {cal.add(num1, num2)}"
+            return  f" The answer of your operation {opchoose} is {cal.add}"
         elif math_op == 2:
-            return   f" The answer of your operation {opchoose} is {cal.subtract(num1, num2)}"
+            return   f" The answer of your operation {opchoose} is {cal.subtract}"
         elif math_op == 3:
-            return   f" The answer of your operation {opchoose} is {cal.multiply(num1, num2)}"
+            return   f" The answer of your operation {opchoose} is {cal.multiply}"
         elif math_op == 4:
-            return   f" The answer of your operation {opchoose} is {cal.divide(num1, num2)}"
+            return   f" The answer of your operation {opchoose} is {cal.divide}"
         else:
             return "Invalid choice.Please select a valid operation"
     
@@ -67,8 +68,8 @@ num2 = float(input("Enter your second number: "))
 
 
 opchoose = int(input("Choose your given operation (1/2/3/4): "))
-
-math_op = Math()
+    
+math_op = Math(num1,num2)
 
 result = math_op.perform_operation(opchoose,num1, num2, opchoose)
 
