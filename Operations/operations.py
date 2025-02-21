@@ -73,6 +73,7 @@ math_op = Math(num1,num2)
 
 result = math_op.perform_operation(opchoose,num1, num2, opchoose)
 
-print(result)
+
 
 math_op.store_calculations(opchoose, num1, num2, result)
+print(result)
